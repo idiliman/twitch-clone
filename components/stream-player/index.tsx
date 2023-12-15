@@ -11,6 +11,7 @@ import { ChatToggle } from './chat-toggle';
 import { ChatHeaderSkeleton } from './chat-header';
 import { Header } from './header';
 import { InfoCard } from './info-card';
+import { AboutCard } from './about-card';
 
 type CustomStream = {
   id: string;
@@ -76,6 +77,13 @@ export default function StreamPlayer({ isFollowing, stream, user }: StreamPlayer
             viewerIdentity={identity}
             name={stream.name}
             thumbnailUrl={stream.thumbnailUrl}
+          />
+          <AboutCard
+            hostName={user.username}
+            hostIdentity={user.id}
+            viewerIdentity={identity}
+            bio={user.bio}
+            followedByCount={user._count.followedBy}
           />
         </div>
         <div className={cn('col-span-1', collapsed && 'hidden')}>
